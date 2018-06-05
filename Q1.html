@@ -1,0 +1,56 @@
+<html>
+<head>
+  <script>
+    // JavaScript 寫在這
+    var state = true;
+    var timeLeft = 5;
+    
+    function toggleLight() {
+       var image = document.getElementById("image");
+        state = !state;
+        image.src = state ? "img/on.jpg" : "img/off.jpg";
+    }
+
+    var id;
+
+    function countDownTimer() {
+      alert(timeLeft);
+      timeLeft = timeLeft - 1;
+      if (timeLeft <= 0) {
+        timeLeft = 0;
+        state=false;
+        document.getElementById("image").src = "img/off.jpg";
+        clearInterval(id);
+
+      }
+      document.getElementById("timer").innerHTML = timeLeft;
+    } 
+
+    function countDown()
+    {
+
+        var time = document.getElementById("countDownTime").value;
+        alert(document.getElementById("countDownTime").value);
+
+        if (Number.isInteger(Number(time))){
+          timeLeft = Number(time);
+          id = setInterval(countDownTimer, 1000);
+        }else
+        {
+          alert("is Not Number");
+        }
+    }
+
+
+  </script>
+</head>
+<body>
+  <!-- HTML 語法寫在這 -->
+  <img id="image" src="img/on.jpg">
+  <input id="countDownTime" type="text" placeholder="CountDown">
+  <button class="button" onclick="countDown();">Count</button>
+  
+  <button class="button" onclick="toggleLight();">ON<br>-<br>OFF</button>
+  <div class="div" id="timer">5</div>
+</body>
+</html>

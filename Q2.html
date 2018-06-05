@@ -1,0 +1,46 @@
+<html>
+<head>
+  <script>
+    function validate() {
+    var code = document.getElementById("nric").value;
+
+     var sex = ""
+     
+     alert (code.charAt(1))
+
+     if(code.charAt(1)=='1'){
+        sex = "男"
+     }
+     else if (code.charAt(1)=='2'){
+        sex = "女"
+     }
+     else
+     {
+        sex ="XD"
+     }
+
+
+    if (code == "") {
+      alert("內容是空的，發出警告!");
+    } else if (!isNaN(code)) {
+      alert("內容不能是數字，發出警告!");
+    } else if (code.length != 10) {
+      alert("內容的長度不正確，發出警告!");
+    } else { 
+      document.getElementById("result").innerHTML = "某"+sex+"通過驗證";
+    }
+
+
+  }
+  </script>
+</head>
+<body>
+
+   <form>
+   <input type="text" id="nric">
+    <input type="button" placeholder="身分證字號" value="驗證" onclick="validate()">
+    <p id="result"></p>
+  </form>
+
+</body>
+</html>
